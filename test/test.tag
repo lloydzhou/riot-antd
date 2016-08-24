@@ -1,3 +1,4 @@
+import 'antd/lib/style';
 import '../components/index'
 <test>
   <icon type="inbox"></icon>
@@ -20,6 +21,15 @@ import '../components/index'
         <button riot-tag="button" type="primary" icon="cloud-download"></button>
       </div>
     </div>
+  </div>
+  <div riot-tag="card" title="hello" bordered="bordered">
+    <yield to="title">
+      <icon type="github"></icon>
+    </yield>
+    <yield to="extra">
+      <icon type="inbox"></icon>
+    </yield>
+    hello world!!!
   </div>
 
   <style>

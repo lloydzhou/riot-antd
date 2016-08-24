@@ -4,7 +4,7 @@ import './icon.tag';
   <i if={iconType} riot-tag="icon" type={iconType}></i>
   <yield/>
 
-  var root = this.root, style = root.style, classList = root.classList;
+  var root = this.root, classList = root.classList;
   const {type, shape, size, className, htmlType, icon, loading = false, prefixCls = 'ant-btn', onMouseUp, onClick} = opts;
   const clickClassName = prefixCls + '-clicked';
 
@@ -23,6 +23,8 @@ import './icon.tag';
     classList.add(prefixCls + ('large' == size ? '-lg' : '-sm'));
   if (className) classList.add(className);
 
+  root.setAttribute('type', htmlType || 'button');
+
   this.iconType = loading ? 'loading' : icon;
 
   this.on('unmount', e=>{
@@ -30,7 +32,6 @@ import './icon.tag';
     if (timeout) clearTimeout(timeout);
   })
   root.onmouseup = (e => {
-    console.log('onMouseUp')
     root.blur();
     onMouseUp && onMouseUp(e)
   }).bind(this)

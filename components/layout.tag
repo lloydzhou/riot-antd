@@ -18,17 +18,14 @@ import 'antd/lib/layout/style';
       col.trigger('gutter', gutter)
     })
   }
-  
-  this.on('mount', e => {
-    console.log('mount row', this.tags)
-  })
+
 </row>
 
 <col>
   <yield />
 
   var root = this.root, style = root.style, classList = root.classList;
-  const {span, order, offset, push, pull, className} = opts;
+  const {className} = opts;
 
   const setClass = (size, sizeName) => {
     var col = sizeName ? 'col-' + sizeName : 'col';
@@ -52,9 +49,6 @@ import 'antd/lib/layout/style';
 
   this.on('gutter', gutter => {
     style.paddingLeft = style.paddingRight = gutter / 2;
-  })
-  this.on('mount', e => {
-    console.log('mount col', this.tags)
   })
 </col>
 
