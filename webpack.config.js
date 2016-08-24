@@ -2,16 +2,19 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './components/index',
+  entry: {
+    antd: './index',
+    test: './test/test',
+  },
   output: {
     path: __dirname + '/dist',
-    filename: 'antd.js'
+    filename: '[name].js'
   },
   plugins: [
     new webpack.ProvidePlugin({
       riot: 'riot'
     }),
-    new ExtractTextPlugin('antd.css'),
+    new ExtractTextPlugin('antd.css', {allChunks: true}),
     new webpack.optimize.DedupePlugin()
   ],
   module: {
@@ -27,11 +30,12 @@ module.exports = {
       test: /\.js$|\.tag$/,
       exclude: /node_modules/,
       loader: 'babel-loader',
-      //query: {
-      //  presets: ['es2015']
-      //}
+      query: {
+        presets: ['es2015']
+      }
     },{
       test: /\.less$/,
+      //loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
       loader: ExtractTextPlugin.extract('style', '!css!less'),
       //loader: 'style!css!less'
     }]
