@@ -1,4 +1,4 @@
-import '../index'
+import '../components/index'
 <test>
   <icon type="inbox"></icon>
   <icon type="notification"></icon>

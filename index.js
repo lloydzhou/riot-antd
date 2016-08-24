@@ -1,7 +1,5 @@
 
-import './components/icon.tag';
-import './components/layout.tag';
-import './components/button.tag';
+import './components/index.js';
 
 import 'antd/lib/style/index.js';
 

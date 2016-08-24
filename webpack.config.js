@@ -1,10 +1,11 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   entry: {
     antd: './index',
-    test: './test/test',
+    'antd.min': './index',
   },
   output: {
     path: __dirname + '/dist',
@@ -14,8 +15,15 @@ module.exports = {
     new webpack.ProvidePlugin({
       riot: 'riot'
     }),
-    new ExtractTextPlugin('antd.css', {allChunks: true}),
-    new webpack.optimize.DedupePlugin()
+    new ExtractTextPlugin('[name].css', {allChunks: true}),
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true
+    }),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.min\.css$/,
+      cssProcessorOptions: { discardComments: { removeAll: true } }
+   })
   ],
   module: {
     preLoaders: [{
@@ -40,8 +48,5 @@ module.exports = {
       //loader: 'style!css!less'
     }]
   },
-  devServer: {
-    contentBase: './test'
-  }
 };
 
