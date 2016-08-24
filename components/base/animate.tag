@@ -1,5 +1,6 @@
 import cssAnimate, { isCssAnimationSupported } from 'css-animation';
 <animate>
+
   <yield/>
 
   const transitionMap = {
@@ -8,7 +9,7 @@ import cssAnimate, { isCssAnimationSupported } from 'css-animation';
     leave: 'transitionLeave'
   };
 
-  const root = this.root, noop = ()=>{};
+  const root = this.root, noop = ()=>{return {}};
   const {
     show,
     animation = {default: noop},
@@ -26,28 +27,30 @@ import cssAnimate, { isCssAnimationSupported } from 'css-animation';
   const allowAppearCallback = () => { return transitionAppear || animation.appear; };
   const allowEnterCallback  = () => { return transitionEnter  || animation.enter;  };
   const allowLeaveCallback  = () => { return transitionLeave  || animation.leave;  };
-  const isAppearSupported = () => { return transitionName && allowAppearSupported(); };
-  const isEnterSupported  = () => { return transitionName && allowEnterSupported();  };
-  const isLeaveSupported  = () => { return transitionName && allowLeaveSupported();  };
+  const isAppearSupported = () => { return transitionName && allowAppearCallback(); };
+  const isEnterSupported  = () => { return transitionName && allowEnterCallback();  };
+  const isLeaveSupported  = () => { return transitionName && allowLeaveCallback();  };
 
   var stoper = null;
   const stop = () => {
     const s = stoper;
-    if (stopper){
+    if (stoper){
       s.stop();
       stoper = null;
     }
   }
   const transilate = (animationType, done) => {
+    console.log(animationType, isCssAnimationSupported)
     stop();
     const end = ()=>{
       stoper = null;
       done();
     }
     if ((isCssAnimationSupported || !animation[animationType]) && transitionName && transitionMap[animationType]) {
-      stopper = cssAnimate(root, transitionName + '-' + animationType, end)
+      stoper = cssAnimate(root, {active: transitionName + '-' + animationType}, end);
+      console.log(stoper)
     } else {
-      stopper = animation[animationType](root, end)
+      stoper = animation[animationType](root, end)
     }
   }
   const enter = () => {
@@ -71,12 +74,11 @@ import cssAnimate, { isCssAnimationSupported } from 'css-animation';
     }
   }
 
-  this.on('show', e => {
-    this.root.style.display = ''
+  this.on('updated', e => {
+    !stoper && (opts.show ? enter : leave)();
   })
-
-  this.on('update', e => {
-    (show ? enter : leave)();
+  this.on('mount', e => {
+    enter();
   })
 
 </animate>

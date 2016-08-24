@@ -30,7 +30,29 @@ import '../components/index'
       <icon type="inbox"></icon>
     </yield>
     hello world!!!
+    <br />
+    <badge count="1001"></badge>
+    <br />
+    <br />
+    <badge dot="dot" count=5>
+      <icon type="notification" />
+    </badge>
+    <br />
+    <badge dot="dot">
+      <a href="#">一个链接</a>
+    </badge>
   </div>
+
+  <alert message="消息提示的文案" type="info" close-text="不再提醒"></alert>
+  <alert message="成功提示的文案" type="success" show-icon="true" />
+
+  <alert
+    message="成功提示的文案"
+    description="成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍"
+    type="success"
+    show-icon="true"
+    />
+
 
   <style>
     .anticon {
