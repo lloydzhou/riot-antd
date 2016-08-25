@@ -2,7 +2,16 @@
   "name": "riot-antd",
   "version": "1.0.0",
   "description": "riot ui component &amp; ant.design",
+  "author": "Lloyd Zhou <lloydzhou@qq.com>",
   "main": "dist/antd.js",
+  "keywords": [
+    "riot",
+    "riotjs",
+    "antd",
+    "ant.design",
+    "ui",
+    "component"
+  ],
   "directories": {
     "test": "test"
   },
@@ -38,7 +47,7 @@
     "url": "git+https://github.com/lloydzhou/riot-antd.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lloydzhou/riot-antd/issues"
   },
