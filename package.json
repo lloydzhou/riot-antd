@@ -24,7 +24,9 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-core": "^0.6.8",
-    "webpack-dev-server": "^1.15.0"
+    "webpack-dev-server": "^1.15.0",
+    "webpack-vendor-chunk-plugin": "^1.0.0",
+    "webpack-vendor-plugin": "^0.4.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,14 +1,14 @@
 import 'antd/lib/alert/style';
 import './icon.tag';
-import cssAnimate from 'css-animation';
+import './base/animate.tag';
 <alert>
-    <div if={!closed} name="animate" class="{prefixCls} {prefixCls+'-'+opts.type} {!!opts.description ? prefixCls+'-with-description' : ''} {!showIcon ? prefixCls + '-no-icon' : ''} {!!opts.banner ? prefixCls + '-banner' : ''}">
+    <div if={!closed} riot-tag="animate" animate={prefixCls + '-slide-up-leave'} class="{prefixCls} {prefixCls+'-'+opts.type} {!!opts.description ? prefixCls+'-with-description' : ''} {!showIcon ? prefixCls + '-no-icon' : ''} {!!opts.banner ? prefixCls + '-banner' : ''}">
       <icon if={showIcon} class="ant-alert-icon" type={iconType}></icon>
-      <span class={prefixCls + '-message'}>{opts.message}</span>
-      <span class={prefixCls + '-description'}>{opts.description}</span>
-      <a if={opts.closable || opts.closeText} onclick={close}>
-        {opts.closeText}
-        <i if={!opts.closeText} riot-tag="icon" type="cross"></i>
+      <span class={prefixCls + '-message'}>{parent.opts.message}</span>
+      <span class={prefixCls + '-description'}>{parent.opts.description}</span>
+      <a if={parent.opts.closable || parent.opts.closeText} onclick={close}>
+        {parent.opts.closeText}
+        <i if={!parent.opts.closeText} riot-tag="icon" type="cross"></i>
       </a>
     <div>
 
@@ -39,12 +39,12 @@ import cssAnimate from 'css-animation';
 
   this.close = (e) =>{
     e.preventDefault();
-    cssAnimate(this.animate, {name: prefixCls + '-slide-up-leave'}, ()=>{
-      console.log('end')
+    console.log(this.tags)
+    this.tags.animate.trigger('start', ()=>{
       this.closed = true;
       this.update()
     })
     onClose(e);
   }
-
 </alert>
+

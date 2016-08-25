@@ -23,6 +23,12 @@ import '../components/index'
     </div>
   </div>
   <div riot-tag="card" title="hello" bordered="bordered">
+    <breadcrumb routes={['app', 'menu']}>
+      <breadcrumb-item href="/home" name="home"/>
+      <breadcrumb-item href="/first" name="first"/>
+    </breadcrumb>
+
+
     <yield to="title">
       <icon type="github"></icon>
     </yield>

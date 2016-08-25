@@ -50,7 +50,7 @@ import './icon.tag';
 
     onClick && onClick(e)
 
-  }).bind(this)
+  }).bind(this);
 
 </button>
 

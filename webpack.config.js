@@ -1,6 +1,9 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+var VendorChunkPlugin = require('webpack-vendor-chunk-plugin');
+var VendorPlugin = require('webpack-vendor-plugin')
+
 
 module.exports = {
   entry: {
@@ -16,6 +19,7 @@ module.exports = {
       riot: 'riot'
     }),
     new ExtractTextPlugin('[name].css', {allChunks: true}),
+    new VendorPlugin({dir: 'node_modules'}),
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.js$/,
       minimize: true

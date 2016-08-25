@@ -6,4 +6,5 @@ import './button.tag';
 import './card.tag';
 import './alert.tag';
 import './badge.tag';
+import './breadcrumb.tag';
 
