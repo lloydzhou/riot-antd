@@ -8,8 +8,8 @@ config.entry = {
 }
 config.devServer = {
   contentBase: './test',
-  inline: true,
-  hot: true,
+  //inline: true,
+  //hot: true,
 }
 
 module.exports = config;

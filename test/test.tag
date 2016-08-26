@@ -1,4 +1,3 @@
-import 'antd/lib/style';
 import '../components/index'
 <test>
   <icon type="inbox"></icon>

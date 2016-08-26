@@ -1,4 +1,3 @@
-import 'antd/lib/badge/style';
 <badge>
   <span class={prefixCls} title={opts.count}>
     <yield/>

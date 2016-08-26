@@ -1,4 +1,3 @@
-import 'antd/lib/card/style';
 <card>
   <div if={title} class={prefixCls + '-head'}>
     <h3 class={prefixCls + '-head-title'}>{title}

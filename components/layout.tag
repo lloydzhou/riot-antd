@@ -1,4 +1,3 @@
-import 'antd/lib/layout/style';
 <row>
   <yield />
 

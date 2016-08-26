@@ -1,15 +1,8 @@
-import 'antd/lib/breadcrumb/style';
 <breadcrumb>
   <virtual each={routes}>
     <breadcrumb-item prefix-cls={prefixCls} separator={separator} href={href} name={name} />
   </virtual>
   <yield/>
-
-  <style>
-  .ant-breadcrumb>breadcrumb-item:last-child .ant-breadcrumb-separator {
-    display: none;
-  }
-  </style>
 
   var root = this.root, classList = root.classList, style=root.style;
   const {

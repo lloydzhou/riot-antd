@@ -1,4 +1,3 @@
-import 'antd/lib/alert/style';
 import './icon.tag';
 import './base/animate.tag';
 <alert>
@@ -39,9 +38,11 @@ import './base/animate.tag';
 
   this.close = (e) =>{
     e.preventDefault();
+    console.time('animate')
     this.tags.animate.trigger('start', ()=>{
-      this.closed = true;
-      this.update()
+      console.timeEnd('animate')
+      //this.closed = true;
+      //this.update()
     })
     onClose(e);
   }

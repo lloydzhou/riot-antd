@@ -1,4 +1,3 @@
-import 'antd/lib/button/style';
 import './icon.tag';
 <button> 
   <i if={iconType} riot-tag="icon" type={iconType}></i>
