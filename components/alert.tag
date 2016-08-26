@@ -39,7 +39,6 @@ import './base/animate.tag';
 
   this.close = (e) =>{
     e.preventDefault();
-    console.log(this.tags)
     this.tags.animate.trigger('start', ()=>{
       this.closed = true;
       this.update()
