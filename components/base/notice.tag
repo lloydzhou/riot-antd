@@ -1,3 +1,4 @@
+import util from './util.js';
 <notice>
 <div class={className} style={style}>
   <div name="contentdiv" class={componentClass + '-content'}>
@@ -36,8 +37,7 @@ this.on('mount', ()=>{
     }, duration * 1000)
   }
   if (content){
-    const child = (typeof content !== 'object') ? document.createTextNode(content) : content;
-    this.contentdiv.insertBefore(child, this.contentdiv.firstChild)
+    this.contentdiv.insertBefore(util.getContent(content), this.contentdiv.firstChild)
   }
 })
 this.on('unmount', ()=>{
