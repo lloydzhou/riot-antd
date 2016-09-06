@@ -1,4 +1,4 @@
-import '../components/index'
+import component from '../components/index'
 <test>
   <icon type="inbox"></icon>
   <icon type="notification"></icon>
@@ -58,12 +58,20 @@ import '../components/index'
     show-icon="true"
     />
 
+  <notice>test notice</notice>
+  <notification notices={notices}></notification>
 
   <style>
     .anticon {
       font-size: 26px;
     }
   </style>
+
+  var notice = document.createElement('span');
+  notice.innerHTML = 'test notice3';
+  this.notices = [{content: 'test notice1'}, {content: 'test notice2'}, {content: notice}]
+  component.notification.newInstance().notice({content: 'test notice4', closable: true})
+  console.log(riot)
 
 </test>
 

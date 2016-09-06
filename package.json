@@ -2,7 +2,7 @@
   "name": "riot-antd",
   "version": "1.0.0",
   "description": "riot ui component &amp; ant.design",
-  "author": "Lloyd Zhou <lloydzhou@qq.com>",
+  "author": "",
   "main": "dist/antd.js",
   "keywords": [
     "riot",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "antd": "^1.10.0",
+    "object-assign": "^4.1.0",
     "riot": "^2.6.0"
   },
   "devDependencies": {
@@ -33,20 +34,20 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-core": "^0.6.8",
+    "webpack-dashboard": "^0.1.8",
     "webpack-dev-server": "^1.15.0",
     "webpack-vendor-chunk-plugin": "^1.0.0",
     "webpack-vendor-plugin": "^0.4.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/webpack-dev-server --config dev.webpack.config.js --inline --hot",
+    "start": "./node_modules/.bin/webpack-dashboard -- webpack-dev-server --config dev.webpack.config.js --inline --hot",
     "build": "cp test/* dist && ./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lloydzhou/riot-antd.git"
   },
-  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lloydzhou/riot-antd/issues"
